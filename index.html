@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Rukeya Slamang-Gules | Portfolio</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #0b0b0b;
+            color: #ffffff;
+            line-height: 1.6;
+        }
+
+        header {
+            padding: 25px 7%;
+            border-bottom: 1px solid #222;
+            position: sticky;
+            top: 0;
+            background: rgba(11,11,11,0.95);
+            z-index: 1000;
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 25px;
+            font-weight: bold;
+            color: #d4af37;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 30px;
+        }
+
+        nav a {
+            color: #ffffff;
+            text-decoration: none;
+        }
+
+        nav a:hover {
+            color: #d4af37;
+        }
+
+        .hero {
+            min-height: 80vh;
+            max-width: 1200px;
+            margin: auto;
+            padding: 100px 7%;
+            display: grid;
+            grid-template-columns: 1.3fr 0.7fr;
+            align-items: center;
+            gap: 60px;
+        }
+
+        .hero h1 {
+            font-size: clamp(42px, 6vw, 72px);
+            line-height: 1.05;
+            margin-bottom: 25px;
+        }
+
+        .gold {
+            color: #d4af37;
+        }
+
+        .hero p {
+            font-size: 20px;
+            color: #cccccc;
+            max-width: 650px;
+            margin-bottom: 35px;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 14px 25px;
+            background: #d4af37;
+            color: #000000;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 30px;
+        }
+
+        .btn-outline {
+            display: inline-block;
+            padding: 12px 25px;
+            border: 2px solid #d4af37;
+            color: #d4af37;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 30px;
+        }
+
+        section {
+            max-width: 1200px;
+            margin: auto;
+            padding: 90px 7%;
+        }
+
+        section h2 {
+            color: #d4af37;
+            font-size: 40px;
+            margin-bottom: 25px;
+        }
+
+        .about-text {
+            max-width: 850px;
+            color: #cccccc;
+            font-size: 18px;
+        }
+
+        .filters {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-bottom: 35px;
+        }
+
+        .filters button {
+            background: #1b1b1b;
+            color: #ffffff;
+            border: 1px solid #333;
+            padding: 10px 20px;
+            border-radius: 30px;
+            cursor: pointer;
+        }
+
+        .filters button.active,
+        .filters button:hover {
+            background: #d4af37;
+            color: #000000;
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .project {
+            position: relative;
+            overflow: hidden;
+            border-radius: 15px;
+            background: #151515;
+            cursor: pointer;
+            min-height: 250px;
+        }
+
+        .project img {
+            width: 100%;
+            height: 100%;
+            min-height: 250px;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.4s ease;
+        }
+
+        .project:hover img {
+            transform: scale(1.05);
+        }
+
+        .project-info {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 25px;
+            background: linear-gradient(transparent, rgba(0,0,0,0.95));
+        }
+
+        .project-info h3 {
+            margin-bottom: 5px;
+        }
+
+        .project-info p {
+            color: #cccccc;
+            font-size: 14px;
+        }
+
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .skill {
+            padding: 12px 18px;
+            background: #171717;
+            border: 1px solid #333;
+            border-radius: 30px;
+        }
+
+        .contact {
+            text-align: center;
+        }
+
+        .contact p {
+            color: #cccccc;
+            margin-bottom: 30px;
+        }
+
+        .contact a {
+            color: #d4af37;
+            text-decoration: none;
+            margin: 0 12px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            border-top: 1px solid #222;
+            color: #777777;
+        }
+
+        @media (max-width: 800px) {
+
+            nav ul {
+                display: none;
+            }
+
+            .hero {
+                grid-template-columns: 1fr;
+                padding-top: 70px;
+            }
+
+            .gallery {
+                grid-template-columns: 1fr;
+            }
+
+            section {
+                padding: 60px 7%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <nav>
+        <div class="logo">Rukeya.</div>
+
+        <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#portfolio">Portfolio</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+</header>
+
+
+<section class="hero">
+
+    <div>
+        <h1>
+            Email Marketing<br>
+            <span class="gold">& CRM Specialist</span>
+        </h1>
+
+        <p>
+            Strategic email marketing, CRM and digital marketing
+            that connects brands with their audiences and drives results.
+        </p>
+
+        <div class="buttons">
+            <a href="#portfolio" class="btn">View My Work</a>
+            <a href="#contact" class="btn-outline">Let's Connect</a>
+        </div>
+    </div>
+
+</section>
+
+
+<section id="about">
+
+    <h2>About Me</h2>
+
+    <p class="about-text">
+        I'm Rukeya Slamang-Gules, an Email Marketing and CRM specialist
+        with experience across email strategy, campaign management,
+        deliverability, automation, segmentation and digital marketing.
+
+        <br><br>
+
+        I work across platforms including Klaviyo, HubSpot, Mailchimp,
+        Customer.io, GoHighLevel and Shopify, helping businesses turn
+        their databases into meaningful customer relationships and
+        measurable marketing results.
+    </p>
+
+</section>
+
+
+<section id="portfolio">
+
+    <h2>Selected Work</h2>
+
+    <div class="filters">
+
+        <button class="active" onclick="filterProjects('all')">
+            All
+        </button>
+
+        <button onclick="filterProjects('email')">
+            Email Marketing
+        </button>
+
+        <button onclick="filterProjects('crm')">
+            CRM
+        </button>
+
+        <button onclick="filterProjects('content')">
+            Content
+        </button>
+
+        <button onclick="filterProjects('web')">
+            Web & Digital
+        </button>
+
+    </div>
+
+
+    <div class="gallery">
+
+        <div class="project email">
+            <img src="images/email-01.jpg" alt="Email Marketing Project">
+
+            <div class="project-info">
+                <h3>Email Campaign</h3>
+                <p>Email strategy & campaign execution</p>
+            </div>
+        </div>
+
+
+        <div class="project email">
+            <img src="images/email-02.jpg" alt="Email Campaign">
+
+            <div class="project-info">
+                <h3>Email Marketing</h3>
+                <p>Campaign design & optimisation</p>
+            </div>
+        </div>
+
+
+        <div class="project crm">
+            <img src="images/crm-01.jpg" alt="CRM Project">
+
+            <div class="project-info">
+                <h3>CRM Strategy</h3>
+                <p>Segmentation & customer journeys</p>
+            </div>
+        </div>
+
+
+        <div class="project content">
+            <img src="images/content-01.jpg" alt="Content Marketing">
+
+            <div class="project-info">
+                <h3>Content Marketing</h3>
+                <p>LinkedIn & social media campaigns</p>
+            </div>
+        </div>
+
+
+        <div class="project content">
+            <img src="images/content-02.jpg" alt="Social Media Campaign">
+
+            <div class="project-info">
+                <h3>Social Campaign</h3>
+                <p>Content strategy & creative</p>
+            </div>
+        </div>
+
+
+        <div class="project web">
+            <img src="images/web-01.jpg" alt="Website Project">
+
+            <div class="project-info">
+                <h3>Web & Digital</h3>
+                <p>Website & digital marketing</p>
+            </div>
+        </div>
+
+    </div>
+
+</section>
+
+
+<section id="skills">
+
+    <h2>Skills & Platforms</h2>
+
+    <div class="skills">
+
+        <div class="skill">Email Marketing</div>
+        <div class="skill">CRM Strategy</div>
+        <div class="skill">Email Deliverability</div>
+        <div class="skill">Marketing Automation</div>
+        <div class="skill">Segmentation</div>
+        <div class="skill">Klaviyo</div>
+        <div class="skill">HubSpot</div>
+        <div class="skill">Mailchimp</div>
+        <div class="skill">Customer.io</div>
+        <div class="skill">GoHighLevel</div>
+        <div class="skill">Shopify</div>
+        <div class="skill">Content Marketing</div>
+
+    </div>
+
+</section>
+
+
+<section id="contact" class="contact">
+
+    <h2>Let's Work Together</h2>
+
+    <p>
+        Looking for someone who understands email marketing,
+        CRM and digital strategy? Let's connect.
+    </p>
+
+    <a href="mailto:rslamang@gmail.com">Email Me</a>
+
+    <a href="https://www.linkedin.com/in/rukeya-slamang-gules/" target="_blank">
+        LinkedIn
+    </a>
+
+</section>
+
+
+<footer>
+
+    © 2026 Rukeya Slamang-Gules. All rights reserved.
+
+</footer>
+
+
+<script>
+
+function filterProjects(category) {
+
+    const projects = document.querySelectorAll('.project');
+    const buttons = document.querySelectorAll('.filters button');
+
+    buttons.forEach(button => {
+        button.classList.remove('active');
+    });
+
+    event.target.classList.add('active');
+
+    projects.forEach(project => {
+
+        if (category === 'all') {
+            project.style.display = 'block';
+        }
+
+        else if (project.classList.contains(category)) {
+            project.style.display = 'block';
+        }
+
+        else {
+            project.style.display = 'none';
+        }
+
+    });
+
+}
+
+</script>
+
+</body>
+</html>
